@@ -30,7 +30,18 @@ describe('when a valid gross salary request is sent', () => {
     expect(response.body.NetSalary).toEqual(expect.any(Number))
   })
 
-  test('income tax calculation is correct', async () => {
+  test('income below personal allowance is not taxed', async () => {
+    const salaryRequest = { grossSalary: 11000 }
+    const response = await api
+      .post('/')
+      .send(salaryRequest)
+      .expect(200)
+      .expect('Content-Type', /application\/json/)
+
+    expect(response.body.NetSalary).toEqual(11000)
+  })
+
+  test('income tax calculation is correct on £40k', async () => {
     const salaryRequest = { grossSalary: 40000 }
     const response = await api
       .post('/')
