@@ -49,6 +49,6 @@ describe('when a valid gross salary request is sent', () => {
       .expect(200)
       .expect('Content-Type', /application\/json/)
 
-    expect(response.body.NetSalary).toEqual(30842)
+    expect(response.body.NetSalary).toEqual(34502)
   })
 })
