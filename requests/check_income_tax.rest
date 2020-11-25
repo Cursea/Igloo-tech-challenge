@@ -2,5 +2,5 @@ POST http://localhost:3001/
 Content-Type: application/json
 
 {
-  "grossSalary": 40000
+  "grossSalary": 60000
 }

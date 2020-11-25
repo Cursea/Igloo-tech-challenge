@@ -12,9 +12,10 @@ const taxCalculator = (grossSalary) => {
     if (grossSalary > bracket.ceiling) {
       taxPerBracket.push((bracket.ceiling - bracket.floor) * bracket.rate)
     }
+    console.log(`grossSalary here: ${grossSalary}`)
 
     if (grossSalary >= bracket.floor && grossSalary <= bracket.ceiling) {
-      taxPerBracket.push((grossSalary - bracket.ceiling) * bracket.rate)
+      taxPerBracket.push((grossSalary - bracket.floor) * bracket.rate)
     }
   })
 
@@ -25,7 +26,7 @@ const taxCalculator = (grossSalary) => {
   console.log(`taxPerBracket: ${taxPerBracket}`)
   console.log(`payableTax: ${payableTax}`)
 
-  return { GrossSalary: grossSalary, NetSalary: netSalary}
+  return { GrossSalary: grossSalary, NetSalary: netSalary }
 }
 
 module.exports = taxCalculator
