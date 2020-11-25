@@ -4,7 +4,7 @@ const api = supertest(app)
 
 describe('when an invalid request is sent', () => {
   test('server should reject empty requests', async () => {
-    await api.post('/').expect(400)
+    await api.post('/').send().expect(400)
   })
 })
 
@@ -15,7 +15,7 @@ describe('when a valid gross salary request is sent', () => {
     await api
       .post('/')
       .send(salaryRequest)
-      .expect(201)
+      .expect(200)
       .expect('Content-Type', /application\/json/)
   })
 
@@ -24,9 +24,9 @@ describe('when a valid gross salary request is sent', () => {
     const response = await api
       .post('/')
       .send(salaryRequest)
-      .expect(201)
+      .expect(200)
       .expect('Content-Type', /application\/json/)
-    
-    expect(typeof(response.body.NetSalary)).toBe(Number)
+
+    expect(response.body.NetSalary).toEqual(expect.any(Number))
   })
 })

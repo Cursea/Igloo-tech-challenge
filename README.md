@@ -14,4 +14,4 @@ A request to calculate a gross salary can be sent to the root (/) endpoint, usin
 
 #### Notes
 
-There will be some unit tests (using Jest) shortly..
+The app has unit tests (using Jest & Supertest) which can be run with with node `npm run test`.

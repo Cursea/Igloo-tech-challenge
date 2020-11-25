@@ -21,6 +21,10 @@ const taxCalculator = (grossSalary) => {
   const payableTax = taxPerBracket.reduce((total, amount) => (total += amount))
   const netSalary = grossSalary - payableTax
 
+  //infinity is weird
+  console.log(`taxPerBracket: ${taxPerBracket}`)
+  console.log(`payableTax: ${payableTax}`)
+
   return { GrossSalary: grossSalary, NetSalary: netSalary}
 }
 
