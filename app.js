@@ -1,7 +1,9 @@
 const express = require('express')
 const app = express()
+const bodyParser = require('body-parser')
 const taxRouter = require('./controllers/tax')
 
+app.use(bodyParser.json())
 app.use('/', taxRouter)
 
 const taxCalculator = (grossSalary) => {
@@ -24,9 +26,9 @@ const taxCalculator = (grossSalary) => {
     }
   })
 
-  const payableTax = taxPerBracket.reduce((total, amount) => total += amount)
+  const payableTax = taxPerBracket.reduce((total, amount) => (total += amount))
   const netSalary = grossSalary - payableTax
-  
+
   return netSalary
 }
 

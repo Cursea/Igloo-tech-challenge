@@ -10,11 +10,6 @@ taxRouter.post('/', (request, response) => {
   console.log(body)
 
   //const grossSalary = body.grossSalary
-
-  /*if (grossSalary > 10000) {
-    response.send('higher than 10000')
-  }
-  */
 })
 
 module.exports = taxRouter
