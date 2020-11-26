@@ -10,23 +10,28 @@ const taxCalculator = (grossSalary) => {
 
   taxBrackets.forEach((bracket) => {
     if (grossSalary > bracket.ceiling) {
-      taxPerBracket.push((bracket.ceiling - bracket.floor) * bracket.rate)
+      taxPerBracket.push(
+        Math.round((bracket.ceiling - bracket.floor) * bracket.rate)
+      )
     }
-    console.log(`grossSalary here: ${grossSalary}`)
 
     if (grossSalary >= bracket.floor && grossSalary <= bracket.ceiling) {
-      taxPerBracket.push((grossSalary - bracket.floor) * bracket.rate)
+      taxPerBracket.push(
+        Math.round((grossSalary - bracket.floor) * bracket.rate)
+      )
     }
   })
 
   const payableTax = taxPerBracket.reduce((total, amount) => (total += amount))
   const netSalary = grossSalary - payableTax
 
-  //infinity is weird
   console.log(`taxPerBracket: ${taxPerBracket}`)
-  console.log(`payableTax: ${payableTax}`)
 
-  return { GrossSalary: grossSalary, NetSalary: netSalary }
+  return {
+    GrossSalary: grossSalary,
+    IncomeTax: payableTax,
+    NetSalary: netSalary,
+  }
 }
 
 module.exports = taxCalculator

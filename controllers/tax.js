@@ -11,7 +11,7 @@ taxRouter.post('/', (request, response) => {
 
   if (!grossSalary && grossSalary !== 0) {
     response.status(400).json({
-      error: 'Request does not contain a Gross salary value'
+      error: 'Request does not contain a Gross salary value',
     })
     return
   }
