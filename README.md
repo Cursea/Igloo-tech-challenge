@@ -2,7 +2,7 @@
 
 ### Income tax calculator (backend)
 
-My _attempt_ (note the emphasis!) to complete my first ever technical interview challenge; a Node.js + Express backend for a UK Income Tax calculator.
+My attempt to complete my first ever technical interview challenge; a Node.js + Express backend for a UK Income Tax calculator.
 
 The instructions for this 3 hour challenge were to create either a frontend or backend app that should take an input of a user's gross salary, and apply the UK 2020 tax bands in order to provide them with a split of how much they will be taxed on their salary, outputting their net salary (pre-National Insurance contributions) as a result.
 
@@ -16,4 +16,4 @@ A request to calculate a gross salary can be sent to the root (/) endpoint, usin
 
 #### Notes
 
-The app has unit tests (using Jest & Supertest) which can be run with with node `npm run test`.
+The app has unit tests (Jest & Supertest) which can be run with with node `npm run test`.
